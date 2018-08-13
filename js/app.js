@@ -1,5 +1,7 @@
 'use strict';
 
+var checks = [0, 1, 2];
+
 var userVotes = 0;
 
 function Product(fileName, name) {
@@ -33,19 +35,28 @@ new Product('img/usb.gif', 'Wiggling USB Tentacle');
 new Product('img/water-can.jpg', 'Self-Watering Water Can');
 new Product('img/wine-glass.jpg', 'Egg Wine Glass');
 
-item1.timesSeen++;
-item2.timesSeen++;
-item3.timesSeen++;
+// function getResults() {
+
+// }
+
+function randomNumber() {
+  return Math.floor(Math.random() * Product.allProducts.length);
+}
 
 function displayNewProducts() {
-  var randIndex1 = Math.floor(Math.random() * Product.allProducts.length);
-  var randIndex2 = Math.floor(Math.random() * Product.allProducts.length);
-  var randIndex3 = Math.floor(Math.random() * Product.allProducts.length);
-  item1 = Product.allProducts[randIndex1];
-  while(randIndex1 === randIndex2 || randIndex1 === randIndex3 || randIndex2 === randIndex3) {
-    randIndex2 = Math.floor(Math.random() * Product.allProducts.length);
-    randIndex3 = Math.floor(Math.random() * Product.allProducts.length);
+  var randIndex1 = randomNumber();
+  var randIndex2 = randomNumber();
+  var randIndex3 = randomNumber();
+  while(randIndex1 === randIndex2 || randIndex1 === randIndex3 || randIndex2 === randIndex3 ||
+        checks.includes(randIndex1) || checks.includes(randIndex2) || checks.includes(randIndex3)) {
+    randIndex1 = randomNumber();
+    randIndex2 = randomNumber();
+    randIndex3 = randomNumber();
   }
+  checks[0] = randIndex1;
+  checks[1] = randIndex2;
+  checks[2] = randIndex3;
+  item1 = Product.allProducts[randIndex1];
   item2 = Product.allProducts[randIndex2];
   item3 = Product.allProducts[randIndex3];
   prod1.src = item1.fileName;
@@ -65,7 +76,7 @@ var radio3 = document.getElementById('vote3');
 var vote = document.getElementById('voteButton');
 
 vote.addEventListener('click', function() {
-  while(userVotes < 25) {
+  if(userVotes < 25) {
     userVotes++;
     if (radio1.checked) {
       item1.numVotes++;
@@ -78,6 +89,7 @@ vote.addEventListener('click', function() {
       radio3.checked=false;
     }
     displayNewProducts();
+  } else {
+  //getResults();
   }
-  getResults();
 });
