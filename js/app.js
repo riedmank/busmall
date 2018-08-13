@@ -1,5 +1,7 @@
 'use strict';
 
+var userVotes = 0;
+
 function Product(fileName) {
   this.fileName = fileName;
   this.numVotes = 0;
@@ -49,16 +51,23 @@ function displayNewProducts() {
 var prod1 = document.getElementsByTagName('img')[0];
 var prod2 = document.getElementsByTagName('img')[1];
 var prod3 = document.getElementsByTagName('img')[2];
+var radio1 = document.getElementById('vote1');
+var radio2 = document.getElementById('vote2');
+var radio3 = document.getElementById('vote3');
 var vote = document.getElementById('voteButton');
 
 vote.addEventListener('click', function() {
-  if (document.getElementById('vote1').checked) {
+  userVotes++;
+  console.log('button clicked');
+  if (radio1.checked) {
     item1.numVotes++;
-  } else if (document.getElementById('vote2').checked) {
+    radio1.checked=false;
+  } else if (radio2.checked) {
     item2.numVotes++;
+    radio2.checked=false;
   } else {
     item3.numVotes++;
+    radio3.checked=false;
   }
   displayNewProducts();
 });
-

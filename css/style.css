@@ -10,8 +10,8 @@ body {
 label > input {
   visibility: none;
   z-index: -1;
-  margin-right: 10px;
-  margin-top: 10px;
+  margin-right: 40px;
+  margin-top: 40px;
   position: absolute;
 }
 
