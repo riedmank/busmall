@@ -32,6 +32,10 @@ new Product('img/usb.gif');
 new Product('img/water-can.jpg');
 new Product('img/wine-glass.jpg');
 
+item1.timesSeen++;
+item2.timesSeen++;
+item3.timesSeen++;
+
 function displayNewProducts() {
   var randIndex1 = Math.floor(Math.random() * Product.allProducts.length);
   var randIndex2 = Math.floor(Math.random() * Product.allProducts.length);
@@ -44,8 +48,11 @@ function displayNewProducts() {
   item2 = Product.allProducts[randIndex2];
   item3 = Product.allProducts[randIndex3];
   prod1.src = item1.fileName;
+  item1.timesSeen++;
   prod2.src = item2.fileName;
-  prod3.src = item3.filename;
+  item2.timesSeen++;
+  prod3.src = item3.fileName;
+  item3.timesSeen++;
 }
 
 var prod1 = document.getElementsByTagName('img')[0];
@@ -58,7 +65,6 @@ var vote = document.getElementById('voteButton');
 
 vote.addEventListener('click', function() {
   userVotes++;
-  console.log('button clicked');
   if (radio1.checked) {
     item1.numVotes++;
     radio1.checked=false;
