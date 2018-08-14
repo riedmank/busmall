@@ -1,6 +1,7 @@
 img {
   display: inline-block;
   max-height: 200px;
+  margin-right: 20px;
 }
 
 body {
@@ -17,40 +18,9 @@ main {
   margin: 0 auto;
 }
 
-label > input {
-  display: none;
-}
-
-label > input + img {
-  cursor: pointer;
-  border: 5px solid transparent;
-}
-
-label > input:checked + img {
-  border: 5px solid blue;
-}
-
-#voteButton {
-  display: block;
-  margin-top: 20px;
-  height: 40px;
-  width: 200px;
-}
-
-main #images, .voteButton {
-  text-align: center;
-}
-
 h1 {
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 50px;
   padding: 20px 20px;
-}
-
-ul {
-  display: inline-block;
-  max-width: 300px;
-  margin-bottom: 100px;
-  padding-right: 150px;
 }

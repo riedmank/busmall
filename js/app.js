@@ -1,7 +1,7 @@
 'use strict';
 
-var color = ['maroon', 'red', 'pink', 'brown', 'orange', 'coral', 'olive', 'yellow', 'beige', 'lime', 'green',
-  'mint', 'teal', 'cyan', 'navy', 'blue', 'purple', 'magenta', 'grey', 'white'];
+var color = ['green', 'magenta', 'maroon', 'red', 'slategrey', 'pink', 'brown', 'orange', 'coral', 'olive',
+  'cyan', 'yellow','beige', 'mint', 'teal', 'navy', 'blue', 'purple', 'white', 'lime'];
 
 // array of values used to check for duplicate images
 var checks = [-1, -1, -1];
@@ -14,16 +14,13 @@ var item1 = document.getElementsByTagName('img')[0];
 var item2 = document.getElementsByTagName('img')[1];
 var item3 = document.getElementsByTagName('img')[2];
 
+// assigning vote counter to variable
+var voteCounter = document.getElementById('voteCount');
+
 // placeholder variables for old images
 var prod1 = document.getElementsByTagName('img')[0];
 var prod2 = document.getElementsByTagName('img')[1];
 var prod3 = document.getElementsByTagName('img')[2];
-
-// assigning radio buttons and vote button to variables
-var radio1 = document.getElementById('vote1');
-var radio2 = document.getElementById('vote2');
-var radio3 = document.getElementById('vote3');
-var vote = document.getElementById('voteButton');
 
 // Product constructor
 function Product(fileName, name) {
@@ -59,7 +56,7 @@ new Product('img/usb.gif', 'Wiggling USB Tentacle');
 new Product('img/water-can.jpg', 'Self-Watering Water Can');
 new Product('img/wine-glass.jpg', 'Egg Wine Glass');
 
-function drawChart() {
+function getResults() {
   var namesArray = [];
   var votesArray = [];
   var seenArray = [];
@@ -100,57 +97,59 @@ function randomNumber() {
 
 // displays 3 new images that are unique and unrepeated from previous round
 function displayNewProducts() {
-  var randIndex1 = randomNumber();
-  var randIndex2 = randomNumber();
-  var randIndex3 = randomNumber();
-  while(checks.includes(randIndex1)) {
-    randIndex1 = randomNumber();
-  }
-  while(randIndex1 === randIndex2 || checks.includes(randIndex2)) {
-    randIndex2 = randomNumber();
-  }
-  while(randIndex1 === randIndex3 || randIndex2 === randIndex3 || checks.includes(randIndex3)) {
-    randIndex3 = randomNumber();
-  }
-  checks[0] = randIndex1;
-  checks[1] = randIndex2;
-  checks[2] = randIndex3;
-  item1 = Product.allProducts[randIndex1];
-  item2 = Product.allProducts[randIndex2];
-  item3 = Product.allProducts[randIndex3];
-  prod1.src = item1.fileName;
-  item1.timesSeen++;
-  prod2.src = item2.fileName;
-  item2.timesSeen++;
-  prod3.src = item3.fileName;
-  item3.timesSeen++;
-}
-
-// listens for click on button
-vote.addEventListener('click', function() {
-  if(userVotes < 24) {
-    userVotes++;
-    if(!(radio1.checked) && !(radio2.checked) && !(radio3.checked)) {
-      return alert('You need to select one of the pictures!');
-    } else if(radio1.checked) {
-      item1.numVotes++;
-      radio1.checked = false;
-    } else if(radio2.checked) {
-      item2.numVotes++;
-      radio2.checked = false;
-    } else {
-      item3.numVotes++;
-      radio3.checked = false;
-    }
-    displayNewProducts();
-  } else {
+  if(userVotes >= 25) {
+    getResults();
     prod1.remove();
     prod2.remove();
     prod3.remove();
-    vote.remove();
-    drawChart();
+    voteCounter.remove();
+  } else {
+    var randIndex1 = randomNumber();
+    var randIndex2 = randomNumber();
+    var randIndex3 = randomNumber();
+    while(checks.includes(randIndex1)) {
+      randIndex1 = randomNumber();
+    }
+    while(randIndex1 === randIndex2 || checks.includes(randIndex2)) {
+      randIndex2 = randomNumber();
+    }
+    while(randIndex1 === randIndex3 || randIndex2 === randIndex3 || checks.includes(randIndex3)) {
+      randIndex3 = randomNumber();
+    }
+    checks[0] = randIndex1;
+    checks[1] = randIndex2;
+    checks[2] = randIndex3;
+    item1 = Product.allProducts[randIndex1];
+    item2 = Product.allProducts[randIndex2];
+    item3 = Product.allProducts[randIndex3];
+    prod1.src = item1.fileName;
+    item1.timesSeen++;
+    prod2.src = item2.fileName;
+    item2.timesSeen++;
+    prod3.src = item3.fileName;
+    item3.timesSeen++;
   }
+}
+
+item1.addEventListener('click', function() {
+  item1.numVotes++;
+  userVotes++;
+  voteCounter.textContent = `${userVotes}/25 Votes`;
+  displayNewProducts();
 });
 
-// displays random images
+item2.addEventListener('click', function() {
+  item2.numVotes++;
+  userVotes++;
+  voteCounter.textContent = `${userVotes}/25 Votes`;
+  displayNewProducts();
+});
+
+item3.addEventListener('click', function() {
+  item3.numVotes++;
+  userVotes++;
+  voteCounter.textContent = `${userVotes}/25 Votes`;
+  displayNewProducts();
+});
+
 displayNewProducts();
