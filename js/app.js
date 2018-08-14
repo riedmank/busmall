@@ -1,5 +1,8 @@
 'use strict';
 
+var color = ['maroon', 'red', 'pink', 'brown', 'orange', 'coral', 'olive', 'yellow', 'beige', 'lime', 'green',
+  'mint', 'teal', 'cyan', 'navy', 'blue', 'purple', 'magenta', 'grey', 'white'];
+
 // array of values used to check for duplicate images
 var checks = [-1, -1, -1];
 
@@ -67,28 +70,14 @@ function drawChart() {
   }
   var ctx = document.getElementById('myChart').getContext('2d');
   var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'pie',
     data: {
       labels: namesArray,
       datasets: [{
         label: '# of Votes',
         data: votesArray,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
+        backgroundColor: color,
+        borderColor: 'rgb(0, 0, 0)',
         borderWidth: 1
       }]
     },
@@ -137,15 +126,16 @@ function displayNewProducts() {
   item3.timesSeen++;
 }
 
-// add vote counter?
 // listens for click on button
 vote.addEventListener('click', function() {
-  if(userVotes < 50) {
+  if(userVotes < 24) {
     userVotes++;
-    if (radio1.checked) {
+    if(!(radio1.checked) && !(radio2.checked) && !(radio3.checked)) {
+      return alert('You need to select one of the pictures!');
+    } else if(radio1.checked) {
       item1.numVotes++;
       radio1.checked = false;
-    } else if (radio2.checked) {
+    } else if(radio2.checked) {
       item2.numVotes++;
       radio2.checked = false;
     } else {
