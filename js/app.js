@@ -56,21 +56,44 @@ new Product('img/usb.gif', 'Wiggling USB Tentacle');
 new Product('img/water-can.jpg', 'Self-Watering Water Can');
 new Product('img/wine-glass.jpg', 'Egg Wine Glass');
 
-// change % to times voted; times seen just whole number
-// prints results of voting to lists
-function getResults() {
-  var voteList = document.getElementById('votes');
-  for(var i = 0; i < Product.allProducts.length; i++) {
-    var voteResults = document.createElement('li');
-    voteResults.textContent = `${Product.allProducts[i].name}: ${Product.allProducts[i].numVotes}`;
-    voteList.appendChild(voteResults);
-  }
-  var appearList = document.getElementById('appear');
-  for(var j = 0; j < Product.allProducts.length; j++) {
-    var voteAppear = document.createElement('li');
-    voteAppear.textContent = `${Product.allProducts[j].name}: ${Math.round((Product.allProducts[j].timesSeen / 25) * 100)}%`;
-    appearList.appendChild(voteAppear);
-  }
+function drawChart() {
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
+    }
+  });
 }
 
 // generates random numbers
@@ -125,11 +148,11 @@ vote.addEventListener('click', function() {
     }
     displayNewProducts();
   } else {
-    getResults();
-    radio1.checked = false;
-    radio2.checked = false;
-    radio3.checked = false;
+    prod1.remove();
+    prod2.remove();
+    prod3.remove();
     vote.remove();
+    drawChart();
   }
 });
 
