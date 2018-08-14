@@ -35,9 +35,20 @@ new Product('img/usb.gif', 'Wiggling USB Tentacle');
 new Product('img/water-can.jpg', 'Self-Watering Water Can');
 new Product('img/wine-glass.jpg', 'Egg Wine Glass');
 
-// function getResults() {
-
-// }
+function getResults() {
+  var voteList = document.getElementById('votes');
+  for(var i = 0; i < Product.allProducts.length; i++) {
+    var voteResults = document.createElement('li');
+    voteResults.textContent = `${Product.allProducts[i].name}: ${Product.allProducts[i].numVotes}`;
+    voteList.appendChild(voteResults);
+  }
+  var appearList = document.getElementById('appear');
+  for(var j = 0; j < Product.allProducts.length; j++) {
+    var voteAppear = document.createElement('li');
+    voteAppear.textContent = `${Product.allProducts[j].name}: ${Math.round((Product.allProducts[j].timesSeen / 25) * 100)}%`;
+    appearList.appendChild(voteAppear);
+  }
+}
 
 function randomNumber() {
   return Math.floor(Math.random() * Product.allProducts.length);
@@ -76,7 +87,7 @@ var radio3 = document.getElementById('vote3');
 var vote = document.getElementById('voteButton');
 
 vote.addEventListener('click', function() {
-  if(userVotes < 25) {
+  if(userVotes < 24) {
     userVotes++;
     if (radio1.checked) {
       item1.numVotes++;
@@ -90,6 +101,7 @@ vote.addEventListener('click', function() {
     }
     displayNewProducts();
   } else {
-  //getResults();
+    getResults();
+    vote.style = 'display: none';
   }
 });

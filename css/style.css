@@ -4,15 +4,11 @@ img {
 }
 
 body {
-  background-color: darkgreen;
+  background-color: lightgreen;
 }
 
 label > input {
-  visibility: none;
-  z-index: -1;
-  margin-right: 40px;
-  margin-top: 160px;
-  position: absolute;
+  display: none;
 }
 
 label > input + img {
