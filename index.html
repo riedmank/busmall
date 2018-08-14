@@ -11,22 +11,23 @@
 <body>
   <head>
     <h1>Bus Mall Product Survey</h1>
-    <nav>Future Links</nav>
   </head>
   <main>
     <p>Click on the image below that you would most likely purchase.  Next, click on the vote button.  
       You will get to vote for 25 products.  After your last vote, the results will be posted and you 
       will no longer be able to vote.
     </p>
-    <label>
-      <input type="radio" name="vote" value="vote1" id="vote1"/><img src="img/bag.jpg">
-    </label>
-    <label>
-      <input type="radio" name="vote" value="vote2" id="vote2"/><img src="img/banana.jpg">
-    </label>
-    <label>
-      <input type="radio" name="vote" value="vote3" id="vote3"/><img src="img/bathroom.jpg">
-    </label>
+    <div class="images">
+      <label>
+        <input type="radio" name="vote" value="vote1" id="vote1"/><img src="img/bag.jpg">
+      </label>
+      <label>
+        <input type="radio" name="vote" value="vote2" id="vote2"/><img src="img/banana.jpg">
+      </label>
+      <label>
+        <input type="radio" name="vote" value="vote3" id="vote3"/><img src="img/bathroom.jpg">
+      </label>
+    </div>
     <input type="button" value="Cast Vote" id="voteButton">
     <ul id="votes"></ul>
     <ul id="appear"></ul>

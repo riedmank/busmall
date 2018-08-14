@@ -5,6 +5,12 @@ img {
 
 body {
   background-color: lightgreen;
+  font-family: 'Lucida Sans';
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 label > input {
@@ -18,4 +24,21 @@ label > input + img {
 
 label > input:checked + img {
   border: 5px solid blue;
+}
+
+#images {
+  display: inline-block;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  padding: 20px 20px;
+}
+
+ul {
+  display: inline-block;
+  max-width: 300px;
+  margin-bottom: 100px;
 }
