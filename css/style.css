@@ -1,6 +1,6 @@
 img {
   display: inline-block;
-  max-width: 200px;
+  max-height: 200px;
 }
 
 body {
@@ -8,8 +8,12 @@ body {
   font-family: 'Lucida Sans';
 }
 
+p {
+  margin-bottom: 30px;
+}
+
 main {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -26,8 +30,15 @@ label > input:checked + img {
   border: 5px solid blue;
 }
 
-#images {
-  display: inline-block;
+#voteButton {
+  display: block;
+  margin-top: 20px;
+  height: 40px;
+  width: 200px;
+}
+
+main #images, .voteButton {
+  text-align: center;
 }
 
 h1 {
@@ -41,4 +52,5 @@ ul {
   display: inline-block;
   max-width: 300px;
   margin-bottom: 100px;
+  padding-right: 150px;
 }
