@@ -1,6 +1,7 @@
 'use strict';
 
-var color = ['green', 'magenta', 'maroon', 'red', 'slategrey', 'pink', 'brown', 'orange', 'coral', 'olive',
+// array of colors used in chart
+var color = ['green', 'magenta', 'maroon', 'red', 'grey', 'pink', 'brown', 'orange', 'coral', 'olive',
   'cyan', 'yellow','beige', 'mint', 'teal', 'navy', 'blue', 'purple', 'white', 'lime'];
 
 // array of values used to check for duplicate images
@@ -56,6 +57,7 @@ new Product('img/usb.gif', 'Wiggling USB Tentacle');
 new Product('img/water-can.jpg', 'Self-Watering Water Can');
 new Product('img/wine-glass.jpg', 'Egg Wine Glass');
 
+// creates chart
 function getResults() {
   var namesArray = [];
   var votesArray = [];
@@ -131,6 +133,7 @@ function displayNewProducts() {
   }
 }
 
+// event listener for first image
 item1.addEventListener('click', function() {
   item1.numVotes++;
   userVotes++;
@@ -138,6 +141,7 @@ item1.addEventListener('click', function() {
   displayNewProducts();
 });
 
+// event listener for second image
 item2.addEventListener('click', function() {
   item2.numVotes++;
   userVotes++;
@@ -145,6 +149,7 @@ item2.addEventListener('click', function() {
   displayNewProducts();
 });
 
+// event listener for third image
 item3.addEventListener('click', function() {
   item3.numVotes++;
   userVotes++;
