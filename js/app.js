@@ -57,14 +57,22 @@ new Product('img/water-can.jpg', 'Self-Watering Water Can');
 new Product('img/wine-glass.jpg', 'Egg Wine Glass');
 
 function drawChart() {
+  var namesArray = [];
+  var votesArray = [];
+  var seenArray = [];
+  for(var i = 0; i < Product.allProducts.length; i++) {
+    namesArray.push(Product.allProducts[i].name);
+    votesArray.push(Product.allProducts[i].numVotes);
+    seenArray.push(Product.allProducts[i].timesSeen);
+  }
   var ctx = document.getElementById('myChart').getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: namesArray,
       datasets: [{
         label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        data: votesArray,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -106,15 +114,13 @@ function displayNewProducts() {
   var randIndex1 = randomNumber();
   var randIndex2 = randomNumber();
   var randIndex3 = randomNumber();
-  while(checks.includes(randIndex1) || checks.includes(randIndex2) || checks.includes(randIndex3)) {
+  while(checks.includes(randIndex1)) {
     randIndex1 = randomNumber();
   }
-  while(randIndex1 === randIndex2 || checks.includes(randIndex1) || checks.includes(randIndex2) ||
-        checks.includes(randIndex3)) {
+  while(randIndex1 === randIndex2 || checks.includes(randIndex2)) {
     randIndex2 = randomNumber();
   }
-  while(randIndex1 === randIndex2 || randIndex1 === randIndex3 || randIndex2 === randIndex3 ||
-        checks.includes(randIndex1) || checks.includes(randIndex2) || checks.includes(randIndex3)) {
+  while(randIndex1 === randIndex3 || randIndex2 === randIndex3 || checks.includes(randIndex3)) {
     randIndex3 = randomNumber();
   }
   checks[0] = randIndex1;
@@ -134,7 +140,7 @@ function displayNewProducts() {
 // add vote counter?
 // listens for click on button
 vote.addEventListener('click', function() {
-  if(userVotes < 1) {
+  if(userVotes < 50) {
     userVotes++;
     if (radio1.checked) {
       item1.numVotes++;
