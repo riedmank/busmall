@@ -1,8 +1,8 @@
 'use strict';
 
 // array of colors used in chart
-var color = ['green', 'magenta', 'maroon', 'red', 'grey', 'pink', 'brown', 'orange', 'coral', 'olive',
-  'cyan', 'yellow','beige', 'mint', 'teal', 'navy', 'blue', 'purple', 'white', 'lime'];
+var color = ['blue', 'green', 'magenta', 'maroon', 'red', 'grey', 'pink', 'brown', 'orange', 'coral', 'olive',
+  'cyan', 'yellow','beige', 'mint', 'teal', 'navy', 'purple', 'white', 'lime'];
 
 // array of values used to check for duplicate images
 var checks = [-1, -1, -1];
@@ -83,9 +83,10 @@ function getResults() {
     options: {
       scales: {
         yAxes: [{
-          ticks: {
-            beginAtZero:true
-          }
+          display: false
+        }],
+        xAxes: [{
+          display: false
         }]
       }
     }
