@@ -26,13 +26,10 @@ main {
   margin: 0 auto;
   padding-bottom: 90px;
   border-radius: 10px;
-  /* display: none; */
 }
 
 body {
-  /* background-color: darkgreen; */
   font-family: 'Lucida Sans';
-  /* background: -webkit-linear-gradient(top, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 83%,#002400 100%); */
   background-image: url('../img/rainforest.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
