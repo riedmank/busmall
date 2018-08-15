@@ -1,9 +1,5 @@
 'use strict';
 
-// array of colors used in chart
-var color = ['blue', 'green', 'magenta', 'maroon', 'red', 'grey', 'pink', 'brown', 'orange', 'coral', 'olive',
-  'cyan', 'yellow', 'tan', 'darkgreen', 'teal', 'navy', 'purple', 'white', 'lime'];
-
 // array of values used to check for duplicate images
 var checks = [-1, -1, -1];
 
@@ -83,21 +79,35 @@ function getResults() {
       datasets: [{
         label: '# of Votes',
         data: votesArray,
-        backgroundColor: color,
+        backgroundColor: 'lightblue',
+        borderColor: 'rgb(0, 0, 0)',
+        borderWidth: 1
+      },
+      {
+        label: 'Times Seen',
+        data: seenArray,
+        backgroundColor: 'ivory',
         borderColor: 'rgb(0, 0, 0)',
         borderWidth: 1
       }]
     },
     options: {
+      legend: {
+        labels: {
+          fontColor: 'black'
+        }
+      },
       scales: {
         yAxes: [{
           ticks: {
-            beginAtZero:true
+            beginAtZero:true,
+            fontColor: 'black'
           },
         }],
         xAxes: [{
           ticks: {
             autoSkip: false,
+            fontColor: 'black',
             suggestedMax: 7,
           },
         }]
