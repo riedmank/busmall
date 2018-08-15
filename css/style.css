@@ -1,6 +1,31 @@
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  padding: 20px 20px;
+  font-style: oblique;
+  letter-spacing: 10px;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.images {
+  margin: 0px auto;
+  text-align: center;
+}
+
 img {
-  display: inline-block;
   max-height: 200px;
+  vertical-align: middle;
+  margin-right: 30px;
+}
+
+img:hover {
+  opacity: .5;
+  outline: solid 5px blue;
 }
 
 body {
@@ -15,42 +40,4 @@ p {
 main {
   max-width: 1000px;
   margin: 0 auto;
-}
-
-label > input {
-  display: none;
-}
-
-label > input + img {
-  cursor: pointer;
-  border: 5px solid transparent;
-}
-
-label > input:checked + img {
-  border: 5px solid blue;
-}
-
-#voteButton {
-  display: block;
-  margin-top: 20px;
-  height: 40px;
-  width: 200px;
-}
-
-main #images, .voteButton {
-  text-align: center;
-}
-
-h1 {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 50px;
-  padding: 20px 20px;
-}
-
-ul {
-  display: inline-block;
-  max-width: 300px;
-  margin-bottom: 100px;
-  padding-right: 150px;
 }

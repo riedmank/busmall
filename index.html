@@ -11,6 +11,7 @@
 <body>
   <head>
     <h1>Bus Mall Product Survey</h1>
+    <h3 id="voteCount">0/25 Votes</h3>
   </head>
   <main>
     <p>Click on the image below that you would most likely purchase.  Next, click on the vote button.  
@@ -18,20 +19,13 @@
       will no longer be able to vote.
     </p>
     <div class="images">
-      <label>
-        <input type="radio" name="vote" value="vote1" id="vote1"/><img src="img/bag.jpg">
-      </label>
-      <label>
-        <input type="radio" name="vote" value="vote2" id="vote2"/><img src="img/banana.jpg">
-      </label>
-      <label>
-        <input type="radio" name="vote" value="vote3" id="vote3"/><img src="img/bathroom.jpg">
-      </label>
+      <img src="img/bag.jpg">
+      <img src="img/banana.jpg">
+      <img src="img/bathroom.jpg">
     </div>
-    <input type="button" value="Cast Vote" id="voteButton">
-    <ul id="votes"></ul>
-    <ul id="appear"></ul>
+    <canvas id="myChart"></canvas>
   </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
