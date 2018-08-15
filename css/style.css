@@ -11,10 +11,23 @@ h3 {
   text-align: center;
   padding-bottom: 20px;
   background-color: lightgreen;
+  font-weight: bold;
 }
 
-canvas {
-  padding-bottom: 50px;
+main {
+  background-color: lightgreen;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 90px;
+}
+
+body {
+  background-color: darkgreen;
+  font-family: 'Lucida Sans';
+}
+
+p {
+  padding: 0px 10px 20px 30px;
 }
 
 .images {
@@ -33,18 +46,6 @@ img:hover {
   outline: solid 5px blue;
 }
 
-body {
-  background-color: darkgreen;
-  font-family: 'Lucida Sans';
-}
-
-p {
-  padding: 0px 10px 20px 30px;
-}
-
-main {
-  background-color: lightgreen;
-  max-width: 900px;
-  margin: 0 auto;
-  padding-bottom: 100px;
+canvas {
+  padding-bottom: 20px;
 }

@@ -23,7 +23,7 @@ var prod1 = document.getElementsByTagName('img')[0];
 var prod2 = document.getElementsByTagName('img')[1];
 var prod3 = document.getElementsByTagName('img')[2];
 
-// Product constructor
+// product constructor
 function Product(fileName, name) {
   this.fileName = fileName;
   this.name = name;
@@ -57,7 +57,7 @@ new Product('img/usb.gif', 'Wiggling USB Tentacle');
 new Product('img/water-can.jpg', 'Self-Watering Water Can');
 new Product('img/wine-glass.jpg', 'Egg Wine Glass');
 
-// creates chart
+// creates chart after user's votes
 function getResults() {
   var namesArray = [];
   var votesArray = [];
@@ -105,7 +105,7 @@ function randomNumber() {
 
 // displays 3 new images that are unique and unrepeated from previous round
 function displayNewProducts() {
-  if(userVotes >= 50) {
+  if(userVotes >= 2) {
     getResults();
     prod1.remove();
     prod2.remove();
@@ -163,4 +163,5 @@ item3.addEventListener('click', function() {
   displayNewProducts();
 });
 
+// display first images on the page as random
 displayNewProducts();
