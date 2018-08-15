@@ -68,7 +68,7 @@ function getResults() {
     seenArray.push(Product.allProducts[i].timesSeen);
   }
   var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
+  new Chart(ctx, {
     type: 'horizontalBar',
     data: {
       labels: namesArray,
