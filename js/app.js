@@ -1,9 +1,9 @@
 'use strict';
 
-// array of values used to check for duplicate images
+// array of values used to check for repeat images
 var checks = [-1, -1, -1];
 
-// global votes variable
+// votes variable
 var userVotes = 0;
 
 // assigning images to variables
@@ -19,7 +19,7 @@ var prod1 = document.getElementsByTagName('img')[0];
 var prod2 = document.getElementsByTagName('img')[1];
 var prod3 = document.getElementsByTagName('img')[2];
 
-// product constructor
+// constructor function for product objects
 function Product(fileName, name, votes = 0, shown = 0) {
   this.fileName = fileName;
   this.name = name;
@@ -61,7 +61,7 @@ if(loadedProduct) {
   new Product('img/wine-glass.jpg', 'Egg Wine Glass');
 }
 
-// creates chart after user's votes
+// creates chart after user voting process complete
 function getResults() {
   var namesArray = [];
   var votesArray = [];
