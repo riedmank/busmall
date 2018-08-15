@@ -2,7 +2,7 @@
 
 // array of colors used in chart
 var color = ['blue', 'green', 'magenta', 'maroon', 'red', 'grey', 'pink', 'brown', 'orange', 'coral', 'olive',
-  'cyan', 'yellow','beige', 'mint', 'teal', 'navy', 'purple', 'white', 'lime'];
+  'cyan', 'yellow', 'tan', 'darkgreen', 'teal', 'navy', 'purple', 'white', 'lime'];
 
 // array of values used to check for duplicate images
 var checks = [-1, -1, -1];
@@ -23,7 +23,7 @@ var prod1 = document.getElementsByTagName('img')[0];
 var prod2 = document.getElementsByTagName('img')[1];
 var prod3 = document.getElementsByTagName('img')[2];
 
-// Product constructor
+// product constructor
 function Product(fileName, name) {
   this.fileName = fileName;
   this.name = name;
@@ -57,7 +57,7 @@ new Product('img/usb.gif', 'Wiggling USB Tentacle');
 new Product('img/water-can.jpg', 'Self-Watering Water Can');
 new Product('img/wine-glass.jpg', 'Egg Wine Glass');
 
-// creates chart
+// creates chart after user's votes
 function getResults() {
   var namesArray = [];
   var votesArray = [];
@@ -69,7 +69,7 @@ function getResults() {
   }
   var ctx = document.getElementById('myChart').getContext('2d');
   var myChart = new Chart(ctx, {
-    type: 'pie',
+    type: 'horizontalBar',
     data: {
       labels: namesArray,
       datasets: [{
@@ -83,10 +83,15 @@ function getResults() {
     options: {
       scales: {
         yAxes: [{
-          display: false
+          ticks: {
+            beginAtZero:true
+          },
         }],
         xAxes: [{
-          display: false
+          ticks: {
+            autoSkip: false,
+            suggestedMax: 7,
+          },
         }]
       }
     }
@@ -158,4 +163,5 @@ item3.addEventListener('click', function() {
   displayNewProducts();
 });
 
+// display first images on the page as random
 displayNewProducts();
