@@ -1,19 +1,20 @@
 h1 {
   font-size: 36px;
   font-weight: bold;
-  margin-bottom: 50px;
-  padding: 20px 20px;
+  padding: 20px 20px 50px 20px;
   font-style: oblique;
   letter-spacing: 10px;
+  background-color: lightgreen;
 }
 
 h3 {
   text-align: center;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
+  background-color: lightgreen;
 }
 
 canvas {
-  margin-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 .images {
@@ -22,9 +23,9 @@ canvas {
 }
 
 img {
-  max-height: 200px;
+  max-height: 175px;
   vertical-align: middle;
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 img:hover {
@@ -33,15 +34,17 @@ img:hover {
 }
 
 body {
-  background-color: lightgreen;
+  background-color: darkgreen;
   font-family: 'Lucida Sans';
 }
 
 p {
-  margin-bottom: 30px;
+  padding: 0px 10px 20px 30px;
 }
 
 main {
-  max-width: 1000px;
+  background-color: lightgreen;
+  max-width: 900px;
   margin: 0 auto;
+  padding-bottom: 100px;
 }

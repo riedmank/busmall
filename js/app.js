@@ -105,7 +105,7 @@ function randomNumber() {
 
 // displays 3 new images that are unique and unrepeated from previous round
 function displayNewProducts() {
-  if(userVotes >= 2) {
+  if(userVotes >= 50) {
     getResults();
     prod1.remove();
     prod2.remove();
