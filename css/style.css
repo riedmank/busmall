@@ -12,6 +12,10 @@ h3 {
   margin-bottom: 20px;
 }
 
+canvas {
+  margin-bottom: 50px;
+}
+
 .images {
   margin: 0px auto;
   text-align: center;

@@ -2,7 +2,7 @@
 
 // array of colors used in chart
 var color = ['blue', 'green', 'magenta', 'maroon', 'red', 'grey', 'pink', 'brown', 'orange', 'coral', 'olive',
-  'cyan', 'yellow','beige', 'mint', 'teal', 'navy', 'purple', 'white', 'lime'];
+  'cyan', 'yellow', 'tan', 'darkgreen', 'teal', 'navy', 'purple', 'white', 'lime'];
 
 // array of values used to check for duplicate images
 var checks = [-1, -1, -1];
@@ -69,7 +69,7 @@ function getResults() {
   }
   var ctx = document.getElementById('myChart').getContext('2d');
   var myChart = new Chart(ctx, {
-    type: 'pie',
+    type: 'horizontalBar',
     data: {
       labels: namesArray,
       datasets: [{
@@ -83,10 +83,15 @@ function getResults() {
     options: {
       scales: {
         yAxes: [{
-          display: false
+          ticks: {
+            beginAtZero:true
+          },
         }],
         xAxes: [{
-          display: false
+          ticks: {
+            autoSkip: false,
+            suggestedMax: 7,
+          },
         }]
       }
     }
@@ -100,7 +105,7 @@ function randomNumber() {
 
 // displays 3 new images that are unique and unrepeated from previous round
 function displayNewProducts() {
-  if(userVotes >= 25) {
+  if(userVotes >= 2) {
     getResults();
     prod1.remove();
     prod2.remove();
